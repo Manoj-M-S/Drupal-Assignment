@@ -1,0 +1,16 @@
+uuid: 54e36653-800a-4d2f-b691-0a1f5b6240b2
+langcode: en
+status: true
+dependencies: {  }
+id: recipe_read
+name: recipe_read
+description: 'Read access to published Recipe content for the Recipe Mobile App.'
+grant_types:
+  client_credentials:
+    status: true
+    description: 'Read recipes'
+umbrella: false
+parent: null
+granularity_id: role
+granularity_configuration:
+  role: recipe_api_consumer

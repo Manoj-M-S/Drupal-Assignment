@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Recipe API CORS test</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; }
+    label { display: block; margin: .5rem 0 .2rem; }
+    input { width: 100%; padding: .4rem; }
+    button { margin-top: 1rem; padding: .5rem 1rem; }
+    pre { background: #f4f4f4; padding: 1rem; overflow: auto; }
+  </style>
+</head>
+<body>
+  <h1>Recipe Mobile App — CORS test</h1>
+  <p>Serve this page from <code>http://localhost:3000</code> (<code>python3 -m http.server 3000</code>).</p>
+
+  <label for="base">Drupal base URL</label>
+  <input id="base" value="https://drupal-recipe-assignment.ddev.site">
+  <label for="cid">Client ID</label>
+  <input id="cid" value="recipe_mobile_app">
+  <label for="secret">Client secret</label>
+  <input id="secret" type="password">
+
+  <button id="run">Get token and fetch recipes</button>
+  <pre id="out"></pre>
+
+  <script>
+    const out = document.getElementById('out');
+    const log = (msg) => { out.textContent += msg + '\n'; };
+
+    document.getElementById('run').addEventListener('click', async () => {
+      out.textContent = '';
+      const base = document.getElementById('base').value.replace(/\/$/, '');
+      try {
+        const tokenRes = await fetch(base + '/oauth/token', {
+          method: 'POST',
+          body: new URLSearchParams({
+            grant_type: 'client_credentials',
+            client_id: document.getElementById('cid').value,
+            client_secret: document.getElementById('secret').value,
+            scope: 'recipe_read',
+          }),
+        });
+        const token = await tokenRes.json();
+        log('Token: ' + tokenRes.status + ' ' + (token.access_token ? 'OK' : JSON.stringify(token)));
+
+        const res = await fetch(base + '/jsonapi/node/recipe?fields[node--recipe]=title,field_prep_time', {
+          headers: {
+            Authorization: 'Bearer ' + token.access_token,
+            Accept: 'application/vnd.api+json',
+          },
+        });
+        const json = await res.json();
+        log('Recipes: ' + res.status);
+        json.data.forEach((r) => log(' - ' + r.attributes.title + ' (' + r.attributes.field_prep_time + ' min)'));
+      } catch (e) {
+        log('Request failed (blocked by CORS?): ' + e);
+      }
+    });
+  </script>
+</body>
+</html>

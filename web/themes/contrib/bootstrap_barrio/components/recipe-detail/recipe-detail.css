@@ -1,0 +1,35 @@
+.recipe-detail {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.recipe-detail__image {
+  margin-bottom: 1.5rem;
+}
+
+.recipe-detail__image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.recipe-detail__title {
+  margin-bottom: 1rem;
+}
+
+.recipe-detail__meta {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.recipe-detail__meta p {
+  margin-bottom: 0.5rem;
+}
+
+.recipe-detail__body {
+  line-height: 1.6;
+}

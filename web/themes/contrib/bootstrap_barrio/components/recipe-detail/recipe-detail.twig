@@ -1,0 +1,43 @@
+<article class="recipe-detail">
+
+  {% if image_url %}
+    <div class="recipe-detail__image">
+      <img
+        src="{{ image_url }}"
+        alt="{{ image_alt }}"
+      >
+    </div>
+  {% endif %}
+
+  <h2 class="recipe-detail__title">
+    {{ title }}
+  </h2>
+
+  <div class="recipe-detail__meta">
+
+    <p>
+      <strong>Prep time:</strong>
+      {{ prep_time }} min
+    </p>
+
+    <p>
+      <strong>Cuisine:</strong>
+      {{ cuisine }}
+    </p>
+
+    {% if reading_time %}
+      <p>
+        <strong>Reading time:</strong>
+        {{ reading_time }}
+      </p>
+    {% endif %}
+
+  </div>
+
+  {% if body %}
+    <div class="recipe-detail__body">
+      {{ body|raw }}
+    </div>
+  {% endif %}
+
+</article>

@@ -1,0 +1,41 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+
+name: Recipe detail
+status: stable
+
+props:
+  type: object
+
+  required:
+    - title
+    - prep_time
+    - cuisine
+
+  properties:
+    title:
+      type: string
+      title: Recipe title
+
+    prep_time:
+      type: integer
+      title: Preparation time
+
+    cuisine:
+      type: string
+      title: Cuisine
+
+    reading_time:
+      type: string
+      title: Reading time
+
+    body:
+      type: string
+      title: Recipe body
+
+    image_url:
+      type: string
+      title: Featured image URL
+
+    image_alt:
+      type: string
+      title: Featured image alt text

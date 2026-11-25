@@ -1,0 +1,12 @@
+uuid: e69ec185-ba1e-41fe-b152-264c7f2a0345
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: recipe_api_consumer
+label: 'Recipe API Consumer'
+weight: 4
+is_admin: false
+permissions:
+  - 'access content'

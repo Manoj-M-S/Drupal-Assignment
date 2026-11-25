@@ -1,0 +1,60 @@
+uuid: 7c4e9e33-e42d-4f76-aed3-1729fdf56849
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.recipe.field_body
+    - field.field.node.recipe.field_category
+    - field.field.node.recipe.field_featured_image
+    - field.field.node.recipe.field_prep_time
+    - node.type.recipe
+  module:
+    - image
+    - text
+    - user
+id: node.recipe.default
+targetEntityType: node
+bundle: recipe
+mode: default
+content:
+  field_body:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_category:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_featured_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_prep_time:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

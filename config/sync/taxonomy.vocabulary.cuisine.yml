@@ -1,0 +1,9 @@
+uuid: 39caa6d0-2cc7-48fc-925e-f3fa49477016
+langcode: en
+status: true
+dependencies: {  }
+name: Cuisine
+vid: cuisine
+description: 'Cuisine categories for recipes.'
+weight: 0
+new_revision: false

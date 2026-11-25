@@ -1,0 +1,49 @@
+# --- Composer-managed code (restored by `composer install`) ---
+/vendor/
+/web/core/
+/web/modules/contrib/
+/web/profiles/contrib/
+/web/libraries/
+
+# Contrib themes are composer-managed too. The assignment required adding
+# files to the active contrib theme (Bootstrap Barrio), so only those
+# customised files are tracked.
+/web/themes/contrib/*
+!/web/themes/contrib/bootstrap_barrio/
+/web/themes/contrib/bootstrap_barrio/*
+!/web/themes/contrib/bootstrap_barrio/bootstrap_barrio.theme
+!/web/themes/contrib/bootstrap_barrio/components/
+/web/themes/contrib/bootstrap_barrio/components/*
+!/web/themes/contrib/bootstrap_barrio/components/recipe-detail/
+!/web/themes/contrib/bootstrap_barrio/templates/
+/web/themes/contrib/bootstrap_barrio/templates/*
+!/web/themes/contrib/bootstrap_barrio/templates/content/
+/web/themes/contrib/bootstrap_barrio/templates/content/*
+!/web/themes/contrib/bootstrap_barrio/templates/content/node--recipe.html.twig
+
+# --- Secrets / environment-specific ---
+/private/
+/web/sites/*/settings.ddev.php
+/web/sites/*/settings.local.php
+/web/sites/*/local.services.yml
+/web/sites/*/files/
+/web/sites/*/private/
+/web/sites/simpletest/
+.env
+*.key
+*.pem
+*.secret
+
+# --- Database dumps ---
+*.sql
+*.sql.gz
+*.mysql
+*.tar.gz
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+node_modules/
